@@ -20,7 +20,7 @@ class NitroGenerator:
 			response = requests.get(
 				"https://discord.com/api/v6/entitlements/gift-codes/" + code + "?with_application=false&with_subscription_plan=true")
 			data = response.json()
-			if data["message"] == 'You are being rate limited.':
+			if data["message"] == 'You are being rate limited.' or data["message"] == 'Unknown Gift Code':
 				print("Not worked: " + code)
 			else:
 				print("Worked: " + code)
